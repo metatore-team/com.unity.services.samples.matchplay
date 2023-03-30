@@ -1,6 +1,6 @@
 
 # Matchplay: A Matchmaker and Multiplay sample
-# Unity Gaming Service（UGS）のMultiPlayerの検証
+# Unity Gaming Service（UGS）のMultiPlayerに関する調査
 - bootStrapというシーンを再生すると複数ユーザーのマッチングのサンプルが動きます。
   - ゲームサーバーは[UGSのGame Server Hostingというサービス](https://dashboard.unity3d.com/gaming/organizations/15668564527413/projects/ae1a2bec-ac9c-4a5f-8824-7ba4d6b0195b/environments/d48770d2-f165-40ca-86e7-507bb2095529/multiplay/builds)で2023/03/30現在起動されている状態です。従量課金制ですが[サインアップ日から 6 か月間有効な800$のクレジット](https://unity.com/solutions/gaming-services/pricing)があるので当分は無料で使えるはずです。（サインアップ日がOrganizationを作成した日なのか、支払情報を登録した日なのかはわかりませんでした。）
   - ネットワーキングライブラリにはNetcode（Unity公式ライブラリ）が使われています。
