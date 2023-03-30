@@ -1,17 +1,24 @@
 
 # Matchplay: A Matchmaker and Multiplay sample
 ## このサンプルについてわかったこと
-- Unity Gaming Service（UGS）のMultiplayerのServer Hostingでホスティングしたサーバー経由で同じ部屋に入れます。
+- Unity Gaming Service（UGS）のMultiplayerのServer Hostingにサーバープログラムをデプロイした状態で、bootStrapというシーンを起動すると複数ユーザーのマッチングのサンプルが動きます。
   - ネットワーキングライブラリにはNetcode（Unity公式ライブラリ）が使われています。
-- ランダムマッチングと2つのステージ（ラボと宇宙）と2つのモード（カジュアルモードとコンペティションモード）が実装されています。
+  - bootStrapシーンのBootStrapperゲームオブジェクトにアタッチされているApplication Controller（エディタ上で実行する場合はEditorApplicationController）がこのアプリケーションのエントリーポイントであり、自身がサーバーとして実行されているのかクライアントとして実行されているのかを判別して、ServerSingletonまたはClientSigletonを生成します。その後、自身がサーバーの場合はServerSingletonのメソッドを呼び出してサーバーを開始し、クライアントの場合にはClientSigletonはユーザーの作成とメインメニュー画面への遷移を行います。
+- 複数ユーザーのマッチングと2つのステージ（ラボと宇宙）と2つのモード（カジュアルモードとコンペティションモード）が実装されています。
   - 手順通りにセットアップしたつもりでしたが、カジュアルモードしか動きませんでした。私の手順が間違っている可能性もあります。
   - ざっと見た感じではゲーム性（キャラクターを動かす、敵が出てくるなど）のある機能は実装されていなそうなので、そちらのプラクティスは得られなそうです。
 - UGS側の設定手順が記載されています。
   - このREADMEの下のほうにあります。
   - 手順を参考にセットアップしたサーバーが[こちら](https://dashboard.unity3d.com/gaming/organizations/15668564527413/projects/ae1a2bec-ac9c-4a5f-8824-7ba4d6b0195b/environments/d48770d2-f165-40ca-86e7-507bb2095529/multiplay/builds)にあります。
 - ボイスチャット機能はこのプロジェクトには存在しません。
-  - Unity MultiplayerにはVivoxという実績のあるボイスチャットおよびテキストチャットのソリューションが統合されており、こちらを使うのが良さそうですが、[現時点ではWebアプリケーションには対応していないようです](https://support.unity.com/hc/en-us/articles/4418757732244-Vivox-Does-Vivox-offer-Web-Browser-SDK-support-)。
+  - Unity MultiplayerにはVivoxという実績([ケーススタディ](https://unity.com/ja/case-study/valorant))のあるボイスチャットおよびテキストチャットのソリューションが統合されており、一見こちらを使うのが良さそうですが、[現時点ではWebアプリケーションには対応していないようです](https://support.unity.com/hc/en-us/articles/4418757732244-Vivox-Does-Vivox-offer-Web-Browser-SDK-support-)。
     - 将来的に対応するつもりはあるようです。
+    - 選択肢
+    - 1.Vivoxを利用するためにWeb版を一旦捨ててPC版もネイティブアプリケーションを提供するようにする。
+    - 2.[webrtc-video-chat](https://assetstore.unity.com/packages/tools/network/webrtc-video-chat-68030?locale=ja-JP#description)：評価は高いですが、メンテナンスがいつまで続くかが不安です。
+    - 3.[Photon Voiceの非公式なWebGL版](https://github.com/frostweep/PUN2VoiceWebGLUnity)：UGSとPhotonが混ざってアーキテクチャが複雑になりそうです。また、ライセンス回りは規約等を要チェックです。
+    - 4.[agora](https://www.agora.io/en/unity/)：検証中は無料だが、商用利用はライセンス料+従量課金でかなりお金がかかりそうです。
+    - 5.WebRTCで独自実装：基本やめたほうが良いと思いますが、自信のある方がいれば。 
 
 # 以下からはfork元のREADMEと同じ内容です。
 
