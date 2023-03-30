@@ -2,6 +2,7 @@
 # Matchplay: A Matchmaker and Multiplay sample
 ## このサンプルについてわかったこと
 - Unity Gaming Service（UGS）のMultiplayerのServer Hostingにサーバープログラムをデプロイした状態で、bootStrapというシーンを起動すると複数ユーザーのマッチングのサンプルが動きます。
+  - 2023/3/30現在、既にデプロイされた状態になっているのでエディタ上からクライアントとしてサンプルを実行可能です。
   - ネットワーキングライブラリにはNetcode（Unity公式ライブラリ）が使われています。
   - bootStrapシーンのBootStrapperゲームオブジェクトにアタッチされているApplication Controller（エディタ上で実行する場合はEditorApplicationController）がこのアプリケーションのエントリーポイントであり、自身がサーバーとして実行されているのかクライアントとして実行されているのかを判別して、ServerSingletonまたはClientSigletonを生成します。その後、自身がサーバーの場合はServerSingletonのメソッドを呼び出してサーバーを開始し、クライアントの場合にはClientSigletonはユーザーの作成とメインメニュー画面への遷移を行います。
 - 複数ユーザーのマッチングと2つのステージ（ラボと宇宙）と2つのモード（カジュアルモードとコンペティションモード）が実装されています。
