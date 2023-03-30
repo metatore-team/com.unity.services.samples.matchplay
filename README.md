@@ -2,7 +2,7 @@
 # Matchplay: A Matchmaker and Multiplay sample
 # Unity Gaming Service（UGS）のMultiPlayerの検証
 - bootStrapというシーンを再生すると複数ユーザーのマッチングのサンプルが動きます。
-  - サーバーは[こちら](https://dashboard.unity3d.com/gaming/organizations/15668564527413/projects/ae1a2bec-ac9c-4a5f-8824-7ba4d6b0195b/environments/d48770d2-f165-40ca-86e7-507bb2095529/multiplay/builds)で起動している状態です。従量課金制ですが[サインアップ日から 6 か月間有効な800$のクレジット](https://unity.com/solutions/gaming-services/pricing)があるので当分は無料で使えるはずです。（サインアップ日がOrganizationを作成した日なのか、支払情報を登録した日なのかはわかりませんでした。）
+  - ゲームサーバーは[こちら](https://dashboard.unity3d.com/gaming/organizations/15668564527413/projects/ae1a2bec-ac9c-4a5f-8824-7ba4d6b0195b/environments/d48770d2-f165-40ca-86e7-507bb2095529/multiplay/builds)で起動している状態です。従量課金制ですが[サインアップ日から 6 か月間有効な800$のクレジット](https://unity.com/solutions/gaming-services/pricing)があるので当分は無料で使えるはずです。（サインアップ日がOrganizationを作成した日なのか、支払情報を登録した日なのかはわかりませんでした。）
   - ネットワーキングライブラリにはNetcode（Unity公式ライブラリ）が使われています。
   - bootStrapシーンのBootStrapperゲームオブジェクトにアタッチされているApplication Controller（エディタ上で実行する場合はEditorApplicationController）がこのアプリケーションのエントリーポイントであり、自身がサーバーとして実行されているのかクライアントとして実行されているのかを判別して、ServerSingletonまたはClientSigletonを生成します。その後、自身がサーバーの場合はServerSingletonのメソッドを呼び出してサーバーを開始し、クライアントの場合にはClientSigletonはユーザーの作成とメインメニュー画面への遷移を行います。
 - 複数ユーザーのマッチングと2つのステージ（ラボと宇宙）と2つのモード（カジュアルモードとコンペティションモード）が実装されています。
