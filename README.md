@@ -1,15 +1,14 @@
 
 # Matchplay: A Matchmaker and Multiplay sample
-## このサンプルについてわかったこと
-- Unity Gaming Service（UGS）のMultiplayerのServer Hostingにサーバープログラムをデプロイした状態で、bootStrapというシーンを起動すると複数ユーザーのマッチングのサンプルが動きます。
-  - 2023/3/30現在、既にデプロイされた状態になっているのでエディタ上からクライアントとしてサンプルを実行可能です。
+## Unity Gaming Service（UGS）のMultiPlayerの検証
+- bootStrapというシーンを再生すると複数ユーザーのマッチングのサンプルが動きます。
+  - サーバーは[こちら](https://dashboard.unity3d.com/gaming/organizations/15668564527413/projects/ae1a2bec-ac9c-4a5f-8824-7ba4d6b0195b/environments/d48770d2-f165-40ca-86e7-507bb2095529/multiplay/builds)にあります。2023/03/30現在、起動されています。
   - ネットワーキングライブラリにはNetcode（Unity公式ライブラリ）が使われています。
   - bootStrapシーンのBootStrapperゲームオブジェクトにアタッチされているApplication Controller（エディタ上で実行する場合はEditorApplicationController）がこのアプリケーションのエントリーポイントであり、自身がサーバーとして実行されているのかクライアントとして実行されているのかを判別して、ServerSingletonまたはClientSigletonを生成します。その後、自身がサーバーの場合はServerSingletonのメソッドを呼び出してサーバーを開始し、クライアントの場合にはClientSigletonはユーザーの作成とメインメニュー画面への遷移を行います。
 - 複数ユーザーのマッチングと2つのステージ（ラボと宇宙）と2つのモード（カジュアルモードとコンペティションモード）が実装されています。
   - 手順通りにセットアップしたつもりでしたが、カジュアルモードしか動きませんでした。私の手順が間違っている可能性もあります。
   - ざっと見た感じではゲーム性（キャラクターを動かす、敵が出てくるなど）のある機能は実装されていなそうなので、そちらのプラクティスは得られなそうです。
 - UGS側の設定手順がこのREADMEの下のほうに記載されています。
-  - 手順を参考にセットアップしたサーバーが[こちら](https://dashboard.unity3d.com/gaming/organizations/15668564527413/projects/ae1a2bec-ac9c-4a5f-8824-7ba4d6b0195b/environments/d48770d2-f165-40ca-86e7-507bb2095529/multiplay/builds)にあります。
 - ボイスチャット機能はこのプロジェクトには存在しません。
   - Unity MultiplayerにはVivoxという実績([ケーススタディ](https://unity.com/ja/case-study/valorant))のあるボイスチャットおよびテキストチャットのソリューションが統合されており、一見こちらを使うのが良さそうですが、[現時点ではWebアプリケーションには対応していないようです](https://support.unity.com/hc/en-us/articles/4418757732244-Vivox-Does-Vivox-offer-Web-Browser-SDK-support-)。
     - 将来的に対応するつもりはあるようです。
